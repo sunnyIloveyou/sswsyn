@@ -20,6 +20,7 @@ class Config(object):
     #制定session过期时间以秒为单位
     PERMANENT_SESSION_LIFETIME = 86400
 
+
 class development_model(Config):
     DEBUG = True
 class production_model(Config):
