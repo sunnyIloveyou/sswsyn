@@ -20,10 +20,11 @@ formatter = logging.Formatter('%(levelname)s %(filename)s:%(lineno)d %(message)s
 file_log_handler.setFormatter(formatter)
 # 为全局的日志工具对象（flask app使用的）添加日志记录器
 logging.getLogger().addHandler(file_log_handler)
-
+from info.modules import ssw
 db = SQLAlchemy()
 def create_app(config_name):
     app = Flask(__name__)
+    app.register_blueprint(ssw)
     app.config.from_object(myconfig[config_name])
     db.init_app(app)
     CSRFProtect(app)
